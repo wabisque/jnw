@@ -5,9 +5,85 @@
     <link rel="icon" href="/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vite App</title>
+
+    <style>
+      *, *::before, *::after {
+        box-sizing: border-box;
+        line-height: 1.5;
+        position: relative;
+      }
+
+      :root {
+        font-size: min(14px, 3.9dvw); 
+      }
+
+      body {
+        margin: 0px;
+        inline-size: 100%;
+      }
+    </style>
   </head>
   <body>
-    <div id="app"></div>
+    <div class="app" id="app">
+      <style>
+        .app {
+          align-items: center;
+          background-color: #ffffff;
+          block-size: 100dvh;
+          display: flex;
+          flex-direction: column;
+          gap: 1.5rem;
+          inline-size: 100%;
+          justify-content: center;
+        }
+
+        .app__spinner {
+          block-size: 1.5rem;
+          color: #F9AB10;
+          inline-size: 1.5rem;
+        }
+
+        .app__spinner::before,
+        .app__spinner::after {
+          border-radius: 100vmax;
+          content: '';
+          inline-size: 100%;
+          inset-block-start: 0px;
+          inset-inline-end: 0px;
+          position: absolute;
+        }
+
+        .app__spinner::before {
+          block-size: 100%;
+          border: 0.24rem solid currentColor;
+          opacity: 25%;
+        }
+
+        .app__spinner::after {
+          animation-duration: 840ms;
+          animation-fill-mode: forwards;
+          animation-iteration-count: infinite;
+          animation-name: app__spinner;
+          animation-timing-function: linear;
+          block-size: 100%;
+          border: 0.24rem solid transparent;
+          border-block-start-color: currentColor;
+        }
+
+        @keyframes app__spinner {
+          0% {
+            rotate: z 0deg;
+          }
+          100% {
+            rotate: z 360deg;
+          }
+        }
+      </style>
+
+      <div class="app__spinner"></div>
+
+      <img class="app__logo" src="/brij-logo.png" alt="Brij Logo">
+    </div>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
